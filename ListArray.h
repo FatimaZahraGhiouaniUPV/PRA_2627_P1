@@ -24,6 +24,73 @@ class ListArray : public List<T> {
 		}
 
 	public:
+		//Métodos de List.h
+		void insert (int pos, T e){
+			if (pos<0 || pos>n){
+				throw out_of_range("Error: posición fuera de rango");
+			}
+			for (int i=n;i>pos;i--){
+				arr[i]=arr[i-1];		
+			}
+			arr[pos]=e;
+			n++;
+		}
+		void append(T e){
+			insert(n,e);
+		
+		}
+		
+		void prepend(T e){
+			insert(0,e);
+		
+		}
+
+		T remove(int pos){
+			if (pos<0 || pos>n){
+				throw out_of_range ("Error: posición fuera de rango");
+			
+			}
+			T removido = arr[pos];
+			for (int i=pos; i<n; i++){
+				arr[i]=arr[i+1];
+			}
+			n--;
+			return removido;
+
+		
+		}
+
+		T get(int pos){
+			if (pos<0 || pos > n){
+				throw out_of_range ("Error: posición fuera de rango");
+			}
+			return arr[pos];
+		
+		}
+
+		int search (T e){
+			for (int i=0;i<n;i++){
+				if (arr[i]==e){
+					return i;
+				}
+			
+			}
+			return -1;
+		
+		}
+
+		bool empty(){
+			if (n==0) return true;
+			return false;
+		
+		}
+
+		int size(){
+			return n;
+		}
+
+		//Métodos de ListArray.h
+
 		ListArray(){
 			 arr=new T[MINSIZE];
 			 max=MINSIZE;
@@ -53,6 +120,7 @@ class ListArray : public List<T> {
 				}
 			
 			}
+			out << "]";
 			return out;
 		
 		}
