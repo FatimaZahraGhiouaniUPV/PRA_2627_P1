@@ -74,7 +74,7 @@ class ListLinked : public List<T> {
 			for (int i=0;i<pos-1;i++){
 				aux=aux->next;
 			}
-			Node<T> a = new Node<T>(e, aux->next);
+			Node<T>* a = new Node<T>(e, aux->next);
 			aux->next=a;
 		
 		}
