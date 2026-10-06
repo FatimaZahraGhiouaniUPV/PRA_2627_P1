@@ -3,10 +3,11 @@
 #include "Point2D.h"
 using namespace std;
 
+Point2D::Point2D(double x, double y) : x(x), y(y) {}
 
 double Point2D::distance(const Point2D &a, const Point2D &b) {
     // A definir
-    double result = sqrt(pow((a.x-b.x),2)-pow((a.y-b.y),2));
+    double result = sqrt(pow((a.x-b.x),2)+pow((a.y-b.y),2));
     return result;
 }
 
